@@ -1,4 +1,4 @@
-﻿namespace _2025_02_refactoring.examples.composition_over_ineritance.good;
+﻿namespace _2025_02_refactoring.examples.composition_over_inheritance.good;
 
 public class Discount
 {

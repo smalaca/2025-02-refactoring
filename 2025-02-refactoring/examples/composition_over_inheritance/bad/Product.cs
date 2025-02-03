@@ -1,4 +1,4 @@
-﻿namespace _2025_02_refactoring.examples.composition_over_ineritance.bad;
+﻿namespace _2025_02_refactoring.examples.composition_over_inheritance.bad;
 
 public class Product
 {
