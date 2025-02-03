@@ -1,16 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=D474730B_002DF917_002D48C8_002D8F50_002D7F0D30E2FD56/@EntryIndexedValue">2025-02-refactoring.Tests</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3832f4f3_002D06e7_002D4443_002D806e_002D641a885c5eaf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="RefactoringTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;MSTest::1DEFEAB5-7603-4D17-A838-501E97C69CD2::net9.0::_2025_02_refactoring.Tests.RefactoringTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=51e20578_002D8921_002D43f1_002D964f_002Df4ace8127a26/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="RefactoringTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;MSTest::1DEFEAB5-7603-4D17-A838-501E97C69CD2::net9.0::_2025_02_refactoring.Tests.RefactoringTest&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
+	
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b01063e1_002Daa8e_002D4c5a_002D87ed_002Db5d5f6e38c32/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="RefactoringTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;MSTest::1DEFEAB5-7603-4D17-A838-501E97C69CD2::net9.0::_2025_02_refactoring.Tests.RefactoringTest&lt;/TestId&gt;&#xD;
