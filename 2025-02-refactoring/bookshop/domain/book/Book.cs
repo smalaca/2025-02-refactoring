@@ -37,4 +37,9 @@ public class Book
             _bookId, _name, _author, _isbn, _publishYear, 
             _author.getName(), _author.getLastName(), status);
     }
+
+    public bool HasId(int bookId)
+    {
+        return _bookId == bookId;
+    }
 }

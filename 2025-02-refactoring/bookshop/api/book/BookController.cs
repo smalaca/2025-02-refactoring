@@ -20,8 +20,9 @@ public class BookController
     public void returnBook(int readerId, int bookId)
     {
         Book book = _bookRepository.FindById(bookId);
+        Reader reader = _readerRepository.FindById(readerId);
         
-        book.Return();
+        reader.Return(book);
         
         _bookRepository.Update(book);
     }

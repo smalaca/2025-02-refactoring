@@ -40,7 +40,7 @@ public class Reader
 
     private int OngoingDelays(DateTime now)
     {
-        return borrowedBooks.Select(book => book.isDelayed(now)).Count();
+        return borrowedBooks.Select(book => book.IsDelayed(now)).Count();
     }
 
     private int AmountOfBorrowedBooks()
@@ -51,5 +51,17 @@ public class Reader
     private int YearsOfMembership(DateTime now)
     {
         return _membershipDate.Year - now.Year;
+    }
+
+    public void Return(Book book)
+    {
+        book.Return();
+        
+        BorrowedBook? found = borrowedBooks.Find(borrowedBook => borrowedBook.Represents(book));
+        
+        if (found != null)
+        {
+            borrowedBooks.Remove(found);
+        }
     }
 }
