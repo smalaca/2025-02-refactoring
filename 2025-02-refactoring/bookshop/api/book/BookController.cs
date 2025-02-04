@@ -1,19 +1,23 @@
-﻿namespace _2025_02_refactoring.bookshop;
+﻿using _2025_02_refactoring.bookshop.api.reader;
+
+namespace _2025_02_refactoring.bookshop;
 
 public class BookController
 {
     private readonly BookRepository _bookRepository;
+    private readonly ReaderRepository _readerRepository;
     
-    public void borrowBook(int bookId)
+    public void borrowBook(int readerId, int bookId)
     {
         Book book = _bookRepository.FindById(bookId);
-        
-        book.Borrow();
+        Reader reader = _readerRepository.FindById(readerId);
+
+        reader.Borrow(book);
         
         _bookRepository.Update(book);
     }
     
-    public void returnBook(int bookId)
+    public void returnBook(int readerId, int bookId)
     {
         Book book = _bookRepository.FindById(bookId);
         

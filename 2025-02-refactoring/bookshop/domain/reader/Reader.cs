@@ -8,6 +8,20 @@ public class Reader
     private readonly List<BorrowedBook> borrowedBooks;
     private readonly List<int> punishmentIds;
 
+    public void Borrow(Book book)
+    {
+        if (CanBorrowBook())
+        {
+            BorrowedBook borrowedBook = book.Borrow(DateTime.Now);
+            borrowedBooks.Add(borrowedBook);
+        }
+    }
+
+    private bool CanBorrowBook()
+    {
+        return getAllowedBooksToBorrow() > 0;
+    }
+
     public int getAllowedBooksToBorrow()
     {
         DateTime now = DateTime.Now;

@@ -1,4 +1,6 @@
-﻿namespace _2025_02_refactoring.bookshop;
+﻿using _2025_02_refactoring.bookshop.api.reader;
+
+namespace _2025_02_refactoring.bookshop;
 
 public class Book
 {
@@ -7,9 +9,10 @@ public class Book
     private readonly Author _author;
     private readonly string _isbn;
     private readonly int _publishYear;
+    private readonly int _maxBorrowingDays;
     private bool isBorrowed;
 
-    internal void Borrow()
+    internal BorrowedBook Borrow(DateTime borrowedAt)
     {
         if (isBorrowed)
         {
@@ -17,6 +20,8 @@ public class Book
         }
         
         isBorrowed = true;
+        
+        return new BorrowedBook(_bookId, borrowedAt, _maxBorrowingDays);
     }
 
     internal void Return()
