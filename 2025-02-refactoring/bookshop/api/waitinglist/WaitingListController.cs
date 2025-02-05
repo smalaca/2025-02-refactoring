@@ -1,14 +1,18 @@
-﻿namespace _2025_02_refactoring.bookshop.api.waitinglist;
+﻿using _2025_02_refactoring.bookshop.api.reader;
+
+namespace _2025_02_refactoring.bookshop.api.waitinglist;
 
 public class WaitingListController
 {
     private readonly WaitingListRepository _waitingListRepository;
+    private readonly ReaderRepository _readerRepository;
     
     public void AddToWaitingList(AddToWaitingListCommand command)
     {
         var waitingList = WaitingListFor(command.bookId);
+        var reader = _readerRepository.FindById(command.readerId);
 
-        waitingList.add(command.readerId, command.pickUpDate);
+        waitingList.add(reader, command.pickUpDate);
         
         _waitingListRepository.Save(waitingList);
     }

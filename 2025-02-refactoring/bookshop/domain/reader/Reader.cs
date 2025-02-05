@@ -4,6 +4,7 @@ public class Reader
 {
     private const int BORROWED_BOOKS_DEFAULT_MAXIMUM = 2;
 
+    private readonly int _readerId;
     private readonly DateTime _membershipDate;
     private readonly List<BorrowedBook> borrowedBooks;
     private readonly List<int> punishmentIds;
@@ -63,5 +64,10 @@ public class Reader
         {
             borrowedBooks.Remove(found);
         }
+    }
+
+    public int getId()
+    {
+        return _readerId;
     }
 }

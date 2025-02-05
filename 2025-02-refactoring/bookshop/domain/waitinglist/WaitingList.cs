@@ -1,4 +1,6 @@
-﻿namespace _2025_02_refactoring.bookshop.api.waitinglist;
+﻿using _2025_02_refactoring.bookshop.api.reader;
+
+namespace _2025_02_refactoring.bookshop.api.waitinglist;
 
 public class WaitingList
 {
@@ -10,8 +12,13 @@ public class WaitingList
         _bookId = bookId;
     }
 
-    public void add(int readerId, DateTime pickUpDate)
+    public void add(Reader reader, DateTime pickUpDate)
     {
-        _waitings.Add(new Waiting(readerId, pickUpDate));
+        if (pickUpDate < DateTime.Now)
+        {
+            throw new ArgumentException("Pick up date must be in the future");
+        }
+        
+        _waitings.Add(new Waiting(reader.getId(), pickUpDate));
     }
 }
