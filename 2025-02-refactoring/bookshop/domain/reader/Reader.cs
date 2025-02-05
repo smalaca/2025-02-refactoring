@@ -8,6 +8,7 @@ public class Reader
     private readonly DateTime _membershipDate;
     private readonly List<BorrowedBook> _borrowedBooks;
     private readonly List<Punishment> _punishments;
+    private readonly string _mailAddress;
 
     public void Borrow(Book book)
     {
@@ -88,5 +89,10 @@ public class Reader
         return _punishments
             .Select(punishment => punishment.wasGivenBefore(lastYear))
             .Count();
+    }
+
+    public string getMailAddress()
+    {
+        return _mailAddress;
     }
 }

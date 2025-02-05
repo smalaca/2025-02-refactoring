@@ -2,4 +2,5 @@
 
 internal interface NotificationService
 {
+    void send(Notification notification);
 }

@@ -13,9 +13,14 @@ public class NewBookWaitingListObserver : NewBookObserver
         List<WaitingList> waitingLists = _waitingListRepository.FindAllByBookId(bookDataModel.bookId);
         List<int> readerIds = waitingLists.Select(waitingList => waitingList.getReaderId()).ToList();
         List<Reader> readers = _readerRepository.findAllByIds(readerIds);
-        List<String> mail;
-        List<Notification> notifications;
+        List<String> mailAddresses = readers.Select(reader => reader.getMailAddress()).ToList();
+        List<Notification> notifications = mailAddresses .Select(mailAddress => AsNotification(bookDataModel, mailAddress)).ToList();
 
-        notifications.ForEach(notfication => _notificationService.send(notfication));
+        notifications.ForEach(notification => _notificationService.send(notification));
+    }
+
+    private static Notification AsNotification(BookDataModel bookDataModel, string mailAddress)
+    {
+        return new Notification(mailAddress, "New book is available", bookDataModel.name);
     }
 }
