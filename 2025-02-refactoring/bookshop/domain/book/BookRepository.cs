@@ -7,9 +7,9 @@ public class BookRepository
         return null;
     }
 
-    public void Update(Book book)
+    public Book Update(Book book)
     {
-        
+        return book;
     }
 
     public List<Book> findAll()

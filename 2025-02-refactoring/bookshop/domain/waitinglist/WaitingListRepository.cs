@@ -11,4 +11,9 @@ public class WaitingListRepository
     {
         
     }
+
+    public List<WaitingList> FindAllByBookId(int bookId)
+    {
+        return new List<WaitingList>();
+    }
 }

@@ -6,4 +6,9 @@ public class ReaderRepository
     {
         return null;
     }
+
+    public List<Reader> findAllByIds(List<int> readerIds)
+    {
+        return null;
+    }
 }

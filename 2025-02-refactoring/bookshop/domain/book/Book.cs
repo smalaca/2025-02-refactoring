@@ -49,4 +49,11 @@ public class Book
     {
         return _bookId == bookId;
     }
+
+    public BookDataModel asDataModel()
+    {
+        return new BookDataModel(
+            _bookId, _name, _isbn, _author.getName(), _author.getLastName(), 
+            _publishYear, _maxBorrowingDays);
+    }
 }

@@ -31,4 +31,9 @@ public class WaitingList
         
         _books.Add(bookId, pickUpDate);
     }
+
+    public int getReaderId()
+    {
+        return _readerId;
+    }
 }

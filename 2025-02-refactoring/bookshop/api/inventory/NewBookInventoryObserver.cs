@@ -2,7 +2,7 @@
 
 public class NewBookInventoryObserver : NewBookObserver
 {
-    public void notify()
+    public void notify(BookDataModel bookDataModel)
     {
         throw new NotImplementedException();
     }

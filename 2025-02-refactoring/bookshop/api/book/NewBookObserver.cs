@@ -2,5 +2,5 @@
 
 public interface NewBookObserver
 {
-    void notify();
+    void notify(BookDataModel bookDataModel);
 }

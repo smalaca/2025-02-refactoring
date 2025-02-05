@@ -19,7 +19,7 @@ public class BookController
         _observers.Remove(observer);
     }
     
-    public void addBook(string name,  string AuthorName, string AuthorSurname, string isbn)
+    public void addBook(string name, string AuthorName, string AuthorSurname, string isbn)
     {
         Book book = new BookBuilder(_isbnService)
             .setName(name)
@@ -27,9 +27,9 @@ public class BookController
             .setIsbn(isbn)
             .build();
         
-        _bookRepository.Update(book);
+        Book createdBook = _bookRepository.Update(book);
         
-        _observers.ForEach(observer => observer.notify());
+        _observers.ForEach(observer => observer.notify(createdBook.asDataModel()));
     } 
     
     public void borrowBook(int readerId, int bookId)
