@@ -6,6 +6,19 @@ public class BookController
 {
     private readonly BookRepository _bookRepository;
     private readonly ReaderRepository _readerRepository;
+    private readonly IsbnService _isbnService;
+    
+    public void addBook(string name,  string AuthorName, string AuthorSurname, string isbn)
+    {
+        Book book = new BookBuilder(_isbnService)
+            .setName(name)
+            .setAuthor(AuthorName, AuthorSurname)
+            .setIsbn(isbn)
+            .build();
+        
+        _bookRepository.Update(book);
+        
+    } 
     
     public void borrowBook(int readerId, int bookId)
     {

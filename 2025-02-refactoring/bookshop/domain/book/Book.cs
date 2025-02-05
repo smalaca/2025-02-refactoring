@@ -12,6 +12,14 @@ public class Book
     private readonly int _maxBorrowingDays;
     private bool isBorrowed;
 
+    internal Book(string name, Author author, string isbn)
+    {
+        _name = name;
+        _author = author;
+        _isbn = isbn;
+        
+    }
+
     internal BorrowedBook Borrow(DateTime borrowedAt)
     {
         if (isBorrowed)

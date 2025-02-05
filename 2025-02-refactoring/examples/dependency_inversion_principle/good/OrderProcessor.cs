@@ -2,7 +2,7 @@
 
 public class OrderProcessor
 {
-    private IPaymentProcessor _paymentProcessor; 
+    private readonly IPaymentProcessor _paymentProcessor; 
 
     public OrderProcessor(IPaymentProcessor paymentProcessor)
     {
