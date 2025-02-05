@@ -4,6 +4,6 @@ public class NewBookInventoryObserver : NewBookObserver
 {
     public void notify(BookDataModel bookDataModel)
     {
-        throw new NotImplementedException();
+        // inform warehouse about new book in inventory
     }
 }
