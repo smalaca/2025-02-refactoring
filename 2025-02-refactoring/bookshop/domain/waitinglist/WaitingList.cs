@@ -12,7 +12,7 @@ public class WaitingList
         _readerId = readerId;
     }
 
-    public void add(int bookId, DateTime pickUpDate)
+    public void add(Reader reader, int bookId, DateTime pickUpDate)
     {
         if (_books.Count < 10)
         {
@@ -22,6 +22,11 @@ public class WaitingList
         if (pickUpDate < DateTime.Now)
         {
             throw new ArgumentException("Pick up date must be in the future");
+        }
+        
+        if (reader.hasAnyPunishmentInLastYear())
+        {
+            throw new ArgumentException("Reader has punishment in last year");
         }
         
         _books.Add(bookId, pickUpDate);

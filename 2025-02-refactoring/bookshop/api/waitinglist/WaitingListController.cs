@@ -9,9 +9,10 @@ public class WaitingListController
     
     public void AddToWaitingList(AddToWaitingListCommand command)
     {
+        var reader = _readerRepository.FindById(command.readerId);
         var waitingList = WaitingListFor(command.readerId);
 
-        waitingList.add(command.bookId, command.pickUpDate);
+        waitingList.add(reader, command.bookId, command.pickUpDate);
         
         _waitingListRepository.Save(waitingList);
     }

@@ -6,15 +6,15 @@ public class Reader
 
     private readonly int _readerId;
     private readonly DateTime _membershipDate;
-    private readonly List<BorrowedBook> borrowedBooks;
-    private readonly List<int> punishmentIds;
+    private readonly List<BorrowedBook> _borrowedBooks;
+    private readonly List<Punishment> _punishments;
 
     public void Borrow(Book book)
     {
         if (CanBorrowBook())
         {
             BorrowedBook borrowedBook = book.Borrow(DateTime.Now);
-            borrowedBooks.Add(borrowedBook);
+            _borrowedBooks.Add(borrowedBook);
         }
     }
 
@@ -36,17 +36,17 @@ public class Reader
 
     private int AmountOfPunishments(DateTime now)
     {
-        return punishmentIds.Count + OngoingDelays(now);
+        return _punishments.Count + OngoingDelays(now);
     }
 
     private int OngoingDelays(DateTime now)
     {
-        return borrowedBooks.Select(book => book.IsDelayed(now)).Count();
+        return _borrowedBooks.Select(book => book.IsDelayed(now)).Count();
     }
 
     private int AmountOfBorrowedBooks()
     {
-        return borrowedBooks.Count;
+        return _borrowedBooks.Count;
     }
 
     private int YearsOfMembership(DateTime now)
@@ -58,16 +58,35 @@ public class Reader
     {
         book.Return();
         
-        BorrowedBook? found = borrowedBooks.Find(borrowedBook => borrowedBook.Represents(book));
+        BorrowedBook? found = _borrowedBooks.Find(borrowedBook => borrowedBook.Represents(book));
         
         if (found != null)
         {
-            borrowedBooks.Remove(found);
+            _borrowedBooks.Remove(found);
         }
     }
 
     public int getId()
     {
         return _readerId;
+    }
+
+    public bool hasAnyPunishmentInLastYear()
+    {
+        return PunishmentInLastYear() > 0;
+    }
+
+    private int PunishmentInLastYear()
+    {
+        return ExistingPunishmentsInLastYear() + OngoingDelays(DateTime.Now);
+    }
+
+    private int ExistingPunishmentsInLastYear()
+    {
+        var lastYear = DateTime.Now.AddYears(-1);
+        
+        return _punishments
+            .Select(punishment => punishment.wasGivenBefore(lastYear))
+            .Count();
     }
 }
