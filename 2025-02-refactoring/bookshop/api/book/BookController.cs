@@ -7,6 +7,17 @@ public class BookController
     private readonly BookRepository _bookRepository;
     private readonly ReaderRepository _readerRepository;
     private readonly IsbnService _isbnService;
+    private readonly List<NewBookObserver> _observers;
+
+    public void register(NewBookObserver observer)
+    {
+        _observers.Add(observer);
+    }
+    
+    public void unregister(NewBookObserver observer)
+    {
+        _observers.Remove(observer);
+    }
     
     public void addBook(string name,  string AuthorName, string AuthorSurname, string isbn)
     {
@@ -18,6 +29,7 @@ public class BookController
         
         _bookRepository.Update(book);
         
+        _observers.ForEach(observer => observer.notify());
     } 
     
     public void borrowBook(int readerId, int bookId)
