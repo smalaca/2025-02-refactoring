@@ -9,21 +9,20 @@ public class WaitingListController
     
     public void AddToWaitingList(AddToWaitingListCommand command)
     {
-        var waitingList = WaitingListFor(command.bookId);
-        var reader = _readerRepository.FindById(command.readerId);
+        var waitingList = WaitingListFor(command.readerId);
 
-        waitingList.add(reader, command.pickUpDate);
+        waitingList.add(command.bookId, command.pickUpDate);
         
         _waitingListRepository.Save(waitingList);
     }
 
-    private WaitingList WaitingListFor(int bookId)
+    private WaitingList WaitingListFor(int readerId)
     {
-        WaitingList? waitingList = _waitingListRepository.FindById(bookId);
+        WaitingList? waitingList = _waitingListRepository.FindById(readerId);
 
         if (waitingList == null)
         {
-            waitingList = new WaitingList(bookId);
+            waitingList = new WaitingList(readerId);
         }
 
         return waitingList;

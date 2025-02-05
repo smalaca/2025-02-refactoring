@@ -2,7 +2,7 @@
 
 public class WaitingListRepository
 {
-    public WaitingList? FindById(int bookId)
+    public WaitingList? FindById(int readerId)
     {
         return null;
     }
