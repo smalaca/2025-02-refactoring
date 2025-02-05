@@ -44,7 +44,7 @@ public class BookBuilder
     }
 }
 
-internal interface IsbnService
+public interface IsbnService
 {
     bool exists(string isbn);
 }

@@ -17,7 +17,6 @@ public class Book
         _name = name;
         _author = author;
         _isbn = isbn;
-        
     }
 
     internal BorrowedBook Borrow(DateTime borrowedAt)
